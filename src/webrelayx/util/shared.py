@@ -77,7 +77,7 @@ def ensure_playwright_browser(browser_type: str = "chromium") -> bool:
             return False
 
     LOG.info(
-        "Playwright %s not found. Running 'playwright install %s' …",
+        "Playwright %s not found. Running 'playwright install %s' (this may take some time)",
         browser_type,
         browser_type,
     )

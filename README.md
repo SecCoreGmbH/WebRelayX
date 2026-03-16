@@ -37,7 +37,7 @@ poetry install
 ```
 
 ### Playwright
-We use playwright to automate browser interactions for `--open-browser` and `launch` subcommands. This tools attempts to install playwright and the browser binaries automatically.
+We use playwright to automate browser interactions for `--open-browser` and `launch` subcommands. This tools attempts to install playwright and the browser binaries automatically if they are not found. This may take some time and will only be done once, after that it should detect playwright automatically.
 
 ## Subcommands
 
