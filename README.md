@@ -4,6 +4,8 @@ WebRelayX is an NTLM relay tool focused on Web (http/s) targets. It builds on im
 
 The goal of this tool is to automate NTLM-Relaying to targets other than ADCS or Exchange, by harvesting session cookies before or after successful authentication.
 
+It checks web pages for NTLM auth and automatically stores cookies that are set before or after an authentication takes place. After a successful relay, the tools checks the captured cookies for validity and stores them in `cookies.jsonl` if they are valid. a browser with those cookies can also be spawned later with the `launch` subcommand.
+
 **This tool is for educational and authorized testing purposes only. Do not use it without permission. We are not responsible for any misuse.**
 
 Created and maintained by [SecCore GmbH](https://seccore.at).
@@ -63,9 +65,6 @@ Starts relay listeners (SMB, HTTP, WCF, RAW, RPC, WinRM) and relays incoming NTL
 # basic relay, outputs cookies to terminal
 sudo webrelayx relay -t http://intranet.demo.internal
 
-# relay and store cookies in cookies.json
-sudo webrelayx relay -t https://intranet.demo.internal -o cookies.json
-
 # relay without SMB or WCF server
 sudo webrelayx relay -t http://intranet.demo.internal --no-smb-server --no-wcf-server
 
@@ -73,7 +72,7 @@ sudo webrelayx relay -t http://intranet.demo.internal --no-smb-server --no-wcf-s
 sudo webrelayx relay -t http://intranet.demo.internal --open-browser
 ```
 
-The browser stays open until you close the tab. The relay listener keeps running in the background.
+The browser stays open until you close it, even after webrelayx exits.
 
 ### list
 Lists captured sessions from cookies.jsonl with index, user and target. Use this index to launch with `launch` subcommand.
@@ -120,3 +119,7 @@ webrelayx launch -i 1 --browser firefox
 |---|---|---|
 | `-i`, `--index` | - | Session from cookie jsonl |
 | `--browser` | `chromium` | Select browser to launch cookie injection with |
+
+
+---
+This product includes software developed by SecureAuth Corporation (https://www.secureauth.com/) and Fortra (https://www.fortra.com).
