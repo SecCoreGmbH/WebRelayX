@@ -10,6 +10,10 @@ It checks web pages for NTLM auth and automatically stores cookies that are set 
 
 Created and maintained by [SecCore GmbH](https://seccore.at).
 
+## Demo
+Scanning and Relaying to a target webserver:
+![WebRelayX demo](output.gif)
+
 ## Requirements
 
 - Python 3.13+
